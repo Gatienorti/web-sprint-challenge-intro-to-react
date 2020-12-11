@@ -1,18 +1,38 @@
 import React from 'react';
-import './App.css';
+import styled from 'styled-components'
+import Character from './components/Character'
+
+const Mainstyled = styled.div`
+.Header{
+  color: ${pr=> pr.theme.color};
+  text-shadow: ${pr=> pr.theme.shade};
+  font-size:${pr=> pr.theme.titleSize};
+  text-align: center;
+  width: 32%;
+  height:70px;
+  margin:4% auto;
+  background-color: ${pr=>pr.theme.backgroundColor};
+  border-radius:${pr=> pr.theme.radius};
+  }
+`
+const characterDiv = styled.div`
+  text-align:center;
+  margin-bottom:4%;
+  display:flex;
+  justify-content:center;
+`
+
+
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
-
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
+ 
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <Mainstyled>
+      <h1 className="Header">Star Wars Characters</h1>
+      <characterDiv>
+        <Character/>
+      </characterDiv>
+    </Mainstyled>
   );
 }
 
