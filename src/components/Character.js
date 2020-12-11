@@ -21,9 +21,10 @@ margin: 0 auto 4% auto;
         inset 0px 0px 11px 3px #00fc15; 
     
     border:0;
-    &:hover{box-shadow: 
+    &:hover{
+        box-shadow: 
         0px 0px 9px 3px#00fc15,
-        inset 0px 0px 15px 4px #00fc15; }
+        inset 0px 0px 15px 4px #00fc15;}
 }
 .card-header{
     border-bottom:none;
