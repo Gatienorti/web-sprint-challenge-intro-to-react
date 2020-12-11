@@ -14,7 +14,9 @@ const Mainstyled = styled.div`
   margin:4% auto;
   background-color: ${pr=>pr.theme.backgroundColor};
   border-radius:${pr=> pr.theme.radius};
-  box-shadow: inset 0px 0px 10px  #00fc15; 
+  box-shadow: 
+        0px 0px 7px 2px#00fc15,
+        inset 0px 0px 11px 3px #00fc15;  
   }
 `
 const CharacterDiv = styled.div`

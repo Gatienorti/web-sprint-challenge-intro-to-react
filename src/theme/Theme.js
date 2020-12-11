@@ -1,8 +1,8 @@
 export default{
     color:'lightgray',
-    shade:'1px 1px 5px #00fc15',
+    shade:'0px 0px 5px  #00fc15',
     titleSize:'3.5rem',
-    regularSize:'1.2rem',
+    regularSize:'1.4rem',
     radius: '10px',
     backgroundColor:'#00000085'
 }
