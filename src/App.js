@@ -9,11 +9,12 @@ const Mainstyled = styled.div`
   text-shadow: ${pr=> pr.theme.shade};
   font-size:${pr=> pr.theme.titleSize};
   text-align: center;
-  width: 32%;
-  height:70px;
+  width: 37%;
+  height:80px;
   margin:4% auto;
   background-color: ${pr=>pr.theme.backgroundColor};
   border-radius:${pr=> pr.theme.radius};
+  box-shadow: inset 0px 0px 10px  #00fc15; 
   }
 `
 const CharacterDiv = styled.div`

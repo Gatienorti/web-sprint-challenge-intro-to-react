@@ -6,6 +6,7 @@ import styled from 'styled-components'
 const Style = styled.div`
 width: 20em;
 border: 2px;
+font-weight:bold;
 font-size:${pr=>pr.theme.regularSize};
 border-radius:${pr=> pr.theme.radius};
 color:${pr=>pr.theme.color};
@@ -16,7 +17,11 @@ margin: 0 auto 4% auto;
 .card{
     background-color:${pr =>pr.theme.backgroundColor};
     cursor:pointer;
+    box-shadow: inset 0px 0px 10px  #00fc15; 
     
+}
+.accordion{
+    margin-bottom:5px;
 }
 ul{
     list-style-type:none;
