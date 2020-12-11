@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios'
 import styled from 'styled-components'
 import Character from './components/Character'
 
@@ -15,23 +16,31 @@ const Mainstyled = styled.div`
   border-radius:${pr=> pr.theme.radius};
   }
 `
-const characterDiv = styled.div`
+const CharacterDiv = styled.div`
   text-align:center;
   margin-bottom:4%;
   display:flex;
   justify-content:center;
 `
-
-
-
 const App = () => {
- 
+const [character, setCharacter]= useState([])
+
+useEffect(()=>{
+    Axios.get('https://swapi.dev/api/people/')
+        .then(res =>
+          setCharacter(res.data.results)
+        )
+        .catch(err=>
+            console.log(err)
+        )
+},[])
+  
   return (
     <Mainstyled>
       <h1 className="Header">Star Wars Characters</h1>
-      <characterDiv>
-        <Character/>
-      </characterDiv>
+      <CharacterDiv>
+        <Character character={character}/>
+      </CharacterDiv>
     </Mainstyled>
   );
 }

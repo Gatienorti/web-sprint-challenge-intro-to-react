@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {Accordion, Card} from 'react-bootstrap';
-import Axios from 'axios'
+
 import styled from 'styled-components'
 
 const Style = styled.div`
@@ -25,19 +25,7 @@ ul{
 
 `
 
-const FinalAccordion = ()=>{
-
-const [character, setCharacter]= useState([])
-
-useEffect(()=>{
-    Axios.get('https://swapi.dev/api/people/')
-        .then(res =>
-            setCharacter(res.data.results)
-        )
-        .catch(err=>
-            console.log(err)
-        )
-},[])
+function FinalAccordion({character}) {
 
 const RenderAccordion = (character, index) => {
     return(
