@@ -1,18 +1,50 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios'
+import styled from 'styled-components'
+import Character from './components/Character'
 
+const Mainstyled = styled.div`
+.Header{
+  color: ${pr=> pr.theme.color};
+  text-shadow: ${pr=> pr.theme.shade};
+  font-size:${pr=> pr.theme.titleSize};
+  text-align: center;
+  width: 37%;
+  height:80px;
+  margin:4% auto;
+  background-color: ${pr=>pr.theme.backgroundColor};
+  border-radius:${pr=> pr.theme.radius};
+  box-shadow: 
+        0px 0px 7px 2px#00fc15,
+        inset 0px 0px 11px 3px #00fc15;  
+  }
+`
+const CharacterDiv = styled.div`
+  text-align:center;
+  margin-bottom:4%;
+  display:flex;
+  justify-content:center;
+`
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+const [character, setCharacter]= useState([])
 
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
+useEffect(()=>{
+    Axios.get('https://swapi.dev/api/people/')
+        .then(res =>
+          setCharacter(res.data.results)
+        )
+        .catch(err=>
+            console.log(err)
+        )
+},[])
+  
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <Mainstyled>
+      <h1 className="Header">Star Wars Characters</h1>
+      <CharacterDiv>
+        <Character character={character}/>
+      </CharacterDiv>
+    </Mainstyled>
   );
 }
 
